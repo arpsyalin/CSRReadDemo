@@ -1,0 +1,3 @@
+rootProject.name='csvread'
+include ':app'
+include ':readmodel'
