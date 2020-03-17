@@ -84,13 +84,13 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
     @Override
     protected void onResume() {
         super.onResume();
-        getSharedPreferences(PreferencesConstant.READFILE, Context.MODE_PRIVATE).registerOnSharedPreferenceChangeListener(this);
+//        getSharedPreferences(PreferencesConstant.READFILE, Context.MODE_PRIVATE).registerOnSharedPreferenceChangeListener(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        getSharedPreferences(PreferencesConstant.READFILE, Context.MODE_PRIVATE).unregisterOnSharedPreferenceChangeListener(this);
+//        getSharedPreferences(PreferencesConstant.READFILE, Context.MODE_PRIVATE).unregisterOnSharedPreferenceChangeListener(this);
     }
 
     @Override
@@ -205,8 +205,7 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
             public void run() {
                 SharedPreferences sharedPreferences1 = getApplication().getSharedPreferences(PreferencesConstant.READFILE, Context.MODE_PRIVATE);
                 String data = sharedPreferences1.getString(mPath, "");
-                Log.e("11111", data);
-            }
+             }
         });
     }
 }
