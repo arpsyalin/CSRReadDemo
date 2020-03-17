@@ -22,8 +22,7 @@ public class ResultDistributeImpl implements IResultDistribute {
 
     @Override
     public void distribute(List<List<String>> arr, FileResource mFileResource) {
-        //4.0以后本地广播已经被抛弃 使用本地广播会出现接收不到
-//        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(ReadApplication.getInstance());
+ //        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(ReadApplication.getInstance());
         Gson gson = new Gson();
         String json = gson.toJson(arr);
         Intent intent = new Intent(PreferencesConstant.READFILE);      //创建发送广播的Action
