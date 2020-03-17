@@ -76,15 +76,6 @@ public class CSVReadImpl implements IFileRead {
         return rlSB.toString();
     }
 
-    public static String[] fromCSVLine(String source, int size) {
-        ArrayList tmpArray = fromCSVLine2Array(source);
-        if (size < tmpArray.size()) {
-            size = tmpArray.size();
-        }
-        String[] rtnArray = new String[size];
-        tmpArray.toArray(rtnArray);
-        return rtnArray;
-    }
 
     /**
      * 把CSV文件的一行转换成字符串数组。不指定数组长度。
@@ -163,49 +154,5 @@ public class CSVReadImpl implements IFileRead {
             }
         }
         return sb.toString();
-    }
-
-    /**
-     * 在字符串的外侧加双引号。
-     * 如果该字符串的内部有双引号的话，把"转换成""。
-     *
-     * @param item 字符串
-     * @return 处理过的字符串
-     */
-    private static String addQuote(String item) {
-        if (item == null || item.length() == 0) {
-            return "\"\"";
-        }
-        StringBuffer sb = new StringBuffer();
-        sb.append('"');
-        for (int idx = 0; idx < item.length(); idx++) {
-            char ch = item.charAt(idx);
-            if ('"' == ch) {
-                sb.append("\"\"");
-            } else {
-                sb.append(ch);
-            }
-        }
-        sb.append('"');
-        return sb.toString();
-    }
-
-
-    /**
-     * 把字符串类型的数组转换成一个CSV行。（输出CSV文件的时候用）
-     */
-    public static String toCSVLine(String[] strArray) {
-        if (strArray == null) {
-            return "";
-        }
-        StringBuffer cvsLine = new StringBuffer();
-        for (int idx = 0; idx < strArray.length; idx++) {
-            String item = addQuote(strArray[idx]);
-            cvsLine.append(item);
-            if (strArray.length - 1 != idx) {
-                cvsLine.append(',');
-            }
-        }
-        return cvsLine.toString();
     }
 }

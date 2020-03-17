@@ -16,6 +16,9 @@ import priv.lyl.readmodel.mutiltread.FileReadManager;
 import priv.lyl.readmodel.mutiltread.FileReadManagerThread;
 import priv.lyl.readmodel.mutiltread.ReadFileTask;
 
+/**
+ * 服务未处理GC后重启处理
+ */
 public class ReadFileService extends Service implements IReadFileService {
     FileReadManager mFileReadManager;
     FileReadManagerThread mFileReadManagerThread;

@@ -7,6 +7,9 @@ import java.util.Set;
 
 import priv.lyl.readmodel.model.FileResource;
 
+/**
+ * 一些线程队列，以及管理方法
+ */
 public class FileReadManager {
     //请求线程队列
     private LinkedList<ReadFileTask> mReadFileTasks;

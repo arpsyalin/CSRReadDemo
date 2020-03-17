@@ -3,6 +3,9 @@ package priv.lyl.readmodel.mutiltread;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * 使用线程池管理运行子线程
+ */
 public class FileReadManagerThread implements Runnable {
     FileReadManager mFileReadManager;
     // 创建一个可重用固定线程数的线程池
@@ -32,9 +35,7 @@ public class FileReadManagerThread implements Runnable {
                 pool.execute(readFileTask);
             } else {
                 try {
-                    // 查询任务完成失败的,重新加载任务队列
-                    // 轮询
-                    Thread.sleep(SLEEP_TIME);
+                     Thread.sleep(SLEEP_TIME);
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();

@@ -42,6 +42,12 @@ public class EntityUtils {
         return returnList;
     }
 
+    /**
+     * 通过反射获取当前实体类的属性名、属性值、属性类别
+     * @param fieldName
+     * @param modle
+     * @return
+     */
     private static Object getFieldValueByName(String fieldName, Object modle) {
         try {
             String firstLetter = fieldName.substring(0, 1).toUpperCase();

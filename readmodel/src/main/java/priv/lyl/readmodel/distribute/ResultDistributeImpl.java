@@ -22,6 +22,7 @@ public class ResultDistributeImpl implements IResultDistribute {
 
     @Override
     public void distribute(List<List<String>> arr, FileResource mFileResource) {
+        //4.0以后本地广播已经被抛弃 使用本地广播会出现接收不到
 //        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(ReadApplication.getInstance());
         Gson gson = new Gson();
         String json = gson.toJson(arr);
@@ -35,5 +36,10 @@ public class ResultDistributeImpl implements IResultDistribute {
 //        editor.putString(mFileResource.getUri(), json);
 //        editor.commit();
         //或者存入数据库
+    }
+
+    @Override
+    public void distributeObject(List<Object[]> arr, FileResource mFileResource) {
+
     }
 }

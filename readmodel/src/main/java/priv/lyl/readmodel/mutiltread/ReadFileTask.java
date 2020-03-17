@@ -10,6 +10,9 @@ import priv.lyl.readmodel.interf.IFileRead;
 import priv.lyl.readmodel.interf.IResultDistribute;
 import priv.lyl.readmodel.model.FileResource;
 
+/**
+ * 线程实现
+ */
 public class ReadFileTask implements Runnable {
 
     public FileResource mFileResource;

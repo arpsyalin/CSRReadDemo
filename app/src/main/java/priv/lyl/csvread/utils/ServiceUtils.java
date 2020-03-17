@@ -11,12 +11,22 @@ import java.lang.ref.WeakReference;
 import priv.lyl.csvread.service.ReadFileService;
 
 public class ServiceUtils {
+    /**
+     * 这里ComponentName都可以配置到build.gradle 使用buildConfig
+     *
+     * @return
+     */
     public static Intent getServiceIntent() {
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("priv.lyl.csvread", "priv.lyl.csvread.service.ReadFileService"));
         return intent;
     }
 
+    /**
+     * 绑定服务
+     * @param context
+     * @param connection
+     */
     public static void bindService(Context context,
                                    ServiceConnection connection) {
         if (context == null || connection == null)
@@ -26,6 +36,11 @@ public class ServiceUtils {
         context.bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 
+    /**
+     * 解绑服务
+     * @param context
+     * @param connection
+     */
     public static void unbindService(Context context,
                                      ServiceConnection connection) {
         if (context == null || connection == null)
@@ -33,6 +48,9 @@ public class ServiceUtils {
         context.unbindService(connection);
     }
 
+    /**
+     * 用弱引用服务允许GC
+     */
     public static class ServiceBinder extends Binder {
         private WeakReference<ReadFileService> mService;
 
